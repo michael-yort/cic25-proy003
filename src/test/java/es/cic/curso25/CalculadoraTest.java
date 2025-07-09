@@ -29,15 +29,15 @@ public class CalculadoraTest {
         Calculadora cut = new Calculadora();
 
         // Ejecuto
-        cut.restar(5.6);
+        cut.restar(7);
 
         // Verifico
         double valorActual = cut.getTotal();
-        assertEquals(5.6, valorActual, 0.000001);
+        assertEquals(-7, valorActual, 0.000001);
 
-        cut.restar(3.4);
+        cut.restar(2);
         valorActual = cut.getTotal();
 
-        assertEquals(9, valorActual, 0.000001);
+        assertEquals(-9, valorActual, 0.000001);
     }
 }

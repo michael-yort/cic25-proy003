@@ -12,6 +12,6 @@ public class Calculadora extends Object {
     }
 
     public void restar(double valor) {
-        total += valor;
+        total -= valor;
     }
 }
