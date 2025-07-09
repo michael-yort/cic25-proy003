@@ -36,8 +36,10 @@ public class CalculadoraTest {
         assertEquals(-7, valorActual, 0.000001);
 
         cut.restar(2);
+
+        cut.restar(-2);
         valorActual = cut.getTotal();
 
-        assertEquals(-9, valorActual, 0.000001);
+        assertEquals(-7, valorActual, 0.000001,"ERROR: Fallo al restar");
     }
 }
