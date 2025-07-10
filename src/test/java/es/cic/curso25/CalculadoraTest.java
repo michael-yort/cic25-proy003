@@ -44,6 +44,8 @@ public class CalculadoraTest {
         assertEquals(-7, valorActual, 0.000001, "ERROR: Fallo al restar");
     }
 
+    
+
     @Test
     public void testMultiplicar() {
         // Preparo
@@ -84,6 +86,20 @@ public class CalculadoraTest {
         // Ejecuto
         /* Quiero que al ejecutar cut.dividir(0) me lance la excepcion especifica siguiente: ArithmeticException.class*/
         assertThrows(ArithmeticException.class, () -> cut.dividir(0));
+
+        // Verifico
+    }
+
+
+     @Test
+    public void testLimpiar() {
+        // Preparo
+        Calculadora cut = new Calculadora();
+        cut.limpiar();
+
+        // Ejecuto
+        /* Quiero que al ejecutar cut.dividir(0) me lance la excepcion especifica siguiente: ArithmeticException.class*/
+        assertEquals(0, cut.getTotal());
 
         // Verifico
     }

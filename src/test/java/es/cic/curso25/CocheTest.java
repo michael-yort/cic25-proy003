@@ -2,8 +2,10 @@ package es.cic.curso25;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 //import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 public class CocheTest {
@@ -13,44 +15,38 @@ public class CocheTest {
     // En cada @Test se creara un nuevo Coche
     @BeforeEach
     public void setUp() {
-
         cut = new Coche();
+        cut.acelerar(50);
     }
-
-    // @Disabled: Este test no se ejecutara.
 
     @Test
     void testAcelerar() {
-        cut.acelerar(34);
         int velocidadFinal = cut.acelerar(23);
-
-        assertEquals(57, velocidadFinal);
-
+        assertEquals(73, velocidadFinal, "La velocidad tras la aceleración no es la esperada");
     }
 
     @Test
     void testFrenar() {
-
-        cut.acelerar(50);
         int velocidadFinal = cut.frenar(23);
+        assertEquals(27, velocidadFinal, "La velocidad tras frenar no es la esperada");
+    }
 
-        assertEquals(27, velocidadFinal);
+    @Disabled
+    @Test
+    void testFrenarMenosQueCero() {
+        assertThrows(ArithmeticException.class, () -> cut.frenar(73),
+                "La velocidad obtenida no puede ser menor que 0");
     }
 
     @Test
     void testGetConsumo() {
-        cut.acelerar(50);
         double consumoActual = cut.getConsumo();
-
-        assertEquals(2.15, consumoActual);
+        assertEquals(2.15, consumoActual, "El consumo obtenido no es el esperado");
     }
 
     @Test
     void testGetVelocidad() {
-
-        cut.acelerar(50);
         int velocidadFinal = cut.getVelocidad();
-
-        assertEquals(50, velocidadFinal);
+        assertEquals(50, velocidadFinal, "La velocidad obtenida no es la esperada");
     }
 }

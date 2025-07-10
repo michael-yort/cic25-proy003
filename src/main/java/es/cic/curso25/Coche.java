@@ -1,33 +1,60 @@
 package es.cic.curso25;
 
 public class Coche {
-    public static final double CONSUMO_INSTANTANEO = 4.3;
-    private int velocidad = 0;
+    // ATRIBUTOS:
+    int velocidad;
+    final double CONSUMO_INSTANTANEO = 4.3;
+
+    private Calculadora calculadora;
+
+    // MÉTODOS:
+
+    // Constructor
+    public Coche() {
+        this.calculadora = new Calculadora();
+    }
 
     public int getVelocidad() {
-        // TODO: Pendiente de completar
-        // Usado para avisar que esta funcion NO ESTA IMPLEMENTADA
         // throw new UnsupportedOperationException("No implementado aun");
-
-        return this.velocidad;
+        // return this.velocidad;
+        return (int) calculadora.getTotal();
     }
 
     public double getConsumo() {
-        //CONSUMO = Velocidad / 100 km X CONSUMO_INSTANTANEO
-        return (double) velocidad / 100 * CONSUMO_INSTANTANEO; // Opera de izquierda a derecha
-        // return velocidad / 100.0 * CONSUMO_INSTANTANEO;
+        this.calculadora.limpiar();
+        this.calculadora.sumar(velocidad);
+        this.calculadora.dividir(100);
+        this.calculadora.multiplicar(CONSUMO_INSTANTANEO);
+
+        // throw new UnsupportedOperationException("No implementado aun");
+        // return this.CONSUMO_INSTANTANEO * this.velocidad / 100;
+        double consumoActual = calculadora.getTotal();
+        return consumoActual;
     }
 
-    public int acelerar(int incrementoDeVelocidad) {
+    public int acelerar(int velocidadIncremento) {
+        this.calculadora.limpiar();
+        this.calculadora.sumar(this.velocidad);
+        this.calculadora.sumar(velocidadIncremento);
 
-        this.velocidad += incrementoDeVelocidad;
+        // throw new UnsupportedOperationException("No implementado aun");
+        this.velocidad = (int) calculadora.getTotal();
         return this.velocidad;
     }
 
-    public int frenar(int decrementoDeVelocidad) {
+    public int frenar(int velocidadFrenado) {
+        this.calculadora.limpiar();
+        this.calculadora.sumar(this.velocidad);
+        this.calculadora.restar(velocidadFrenado);
 
-        this.velocidad -= decrementoDeVelocidad;
-        return this.velocidad;
+        // throw new UnsupportedOperationException("No implementado aun");
+        int velocidadFinal = (int) calculadora.getTotal();
+
+        if (velocidad <= 0) {
+            throw new ArithmeticException("La velocidad no puede ser menor que 0");
+        }
+
+        return velocidadFinal;
     }
-
 }
+

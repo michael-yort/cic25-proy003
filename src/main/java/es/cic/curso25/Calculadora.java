@@ -29,4 +29,12 @@ public class Calculadora extends Object {
         }
 
     }
+
+
+    public void limpiar() {
+
+          total =0;
+        
+
+    }
 }
