@@ -31,7 +31,7 @@ public class CocheTest {
         assertEquals(27, velocidadFinal, "La velocidad tras frenar no es la esperada");
     }
 
-    @Disabled
+    //@Disabled
     @Test
     void testFrenarMenosQueCero() {
         assertThrows(ArithmeticException.class, () -> cut.frenar(73),

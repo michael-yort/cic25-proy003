@@ -50,7 +50,7 @@ public class Coche {
         // throw new UnsupportedOperationException("No implementado aun");
         int velocidadFinal = (int) calculadora.getTotal();
 
-        if (velocidad <= 0) {
+        if (velocidadFinal < 0) {
             throw new ArithmeticException("La velocidad no puede ser menor que 0");
         }
 
