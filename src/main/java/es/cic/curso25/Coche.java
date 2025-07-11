@@ -39,6 +39,10 @@ public class Coche {
 
         // throw new UnsupportedOperationException("No implementado aun");
         this.velocidad = (int) calculadora.getTotal();
+
+        if (velocidad > 300) {
+            throw new ArithmeticException("La velocidad no puede ser supeior a 300");
+        }
         return this.velocidad;
     }
 

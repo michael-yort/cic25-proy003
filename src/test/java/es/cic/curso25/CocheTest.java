@@ -39,6 +39,12 @@ public class CocheTest {
     }
 
     @Test
+    void testVelocidadMaxima() {
+        assertThrows(ArithmeticException.class, () -> cut.acelerar(301),
+                "La velocidad obtenida no puede ser mayor a 300");
+    }
+
+    @Test
     void testGetConsumo() {
         double consumoActual = cut.getConsumo();
         assertEquals(2.15, consumoActual, "El consumo obtenido no es el esperado");
