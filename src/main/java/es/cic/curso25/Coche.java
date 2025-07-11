@@ -41,7 +41,7 @@ public class Coche {
         this.velocidad = (int) calculadora.getTotal();
 
         if (velocidad > 300) {
-            throw new ArithmeticException("La velocidad no puede ser supeior a 300");
+            throw new ArithmeticException("La velocidad no puede ser superior a 300");
         }
         return this.velocidad;
     }
